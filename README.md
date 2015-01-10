@@ -34,7 +34,7 @@ for both:
 > * A user can play against another user on a different computer, using Firebase.js
 > * Add your own user stories
 
-**[Survey Gorilla](https://github.com/pocket-gophers-2014/survey-gorilla-challenge)**
+**[Survey Gorilla] - survey-gorilla-challenge repo**
 > * A user can create a survey
 > * A user can create a question on a survey
 > * A user can create a choice to a question
