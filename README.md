@@ -34,22 +34,7 @@ for both:
 > * A user can play against another user on a different computer, using Firebase.js
 > * Add your own user stories
 
-**[Survey Gorilla] - survey-gorilla-challenge repo**
-> * A user can create a survey
-> * A user can create a question on a survey
-> * A user can create a choice to a question
-> * A user can view survey results
-> * A user can view a visualization of survey results
-> * A user can take a survey
-> * A user can create a question on a survey dynamically (with AJAX)
-> * A user can create a choice to a question dynamically (with AJAX)
-> * A user can sign in
-> * A user is prompted to sign-in using a pop-up modal
-> * A user can edit ther questions
-> * A user can edit their choices
-> * A user can edit their surveys
-> * A user is prevented from taking a survey more than once
-> * Add your own user stories
+![alt text](/img.jpg "Whiteboard")
 
 Before you start coding, decide what your Minimum Viable Product is. What are the features that are absolutely necessary?
 
