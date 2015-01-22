@@ -36,7 +36,7 @@ for both:
 
 ![alt tag](https://github.com/victoriachuang/javascript-group-projects/blob/master/img.jpeg)
 
-![alt tag](https://github.com/victoriachuang/javascript-group-projects/blob/master/img1.JPG)
+![alt tag](https://github.com/victoriachuang/javascript-group-projects/blob/master/img1.jpeg)
 
 Before you start coding, decide what your Minimum Viable Product is. What are the features that are absolutely necessary?
 
