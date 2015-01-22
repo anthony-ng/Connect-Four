@@ -1,0 +1,30 @@
+table.board {
+  width: 700px;
+  height: 600px;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 80px auto;
+  background: yellow;
+}
+
+tr {
+  padding-left: 10px;
+}
+
+td {
+  width: 70px;
+  height: 70px;
+/*  padding-left: 10px;
+*/  background: #fff;
+  -moz-border-radius: 60px;
+  -webkit-border-radius: 60px;
+  border-radius: 60px;
+}
+
+td.red {
+  background: red;
+}
+
+td.black {
+  background: #000;
+}
