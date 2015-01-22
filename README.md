@@ -36,6 +36,8 @@ for both:
 
 ![alt tag](https://github.com/victoriachuang/javascript-group-projects/blob/master/img.JPG)
 
+![alt tag](https://github.com/victoriachuang/javascript-group-projects/blob/master/img1.JPG)
+
 Before you start coding, decide what your Minimum Viable Product is. What are the features that are absolutely necessary?
 
 ***Declare your MVP in your README.md. This should be your first commit.*** As you finish sprints, you should update your README.md
