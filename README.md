@@ -34,8 +34,6 @@ for both:
 * A user can play against another user on a different computer, using Firebase.js
 * Add your own user stories
 
-![alt tag](https://github.com/victoriachuang/javascript-group-projects/blob/master/img.jpeg)
-
 ![alt tag](https://github.com/victoriachuang/javascript-group-projects/blob/master/img1.jpeg)
 
 Before you start coding, decide what your Minimum Viable Product is. What are the features that are absolutely necessary?
