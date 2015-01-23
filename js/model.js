@@ -1,3 +1,4 @@
+
 function Game() {
   this.whoseTurn = "red";
   this.board = [[], [], [], [], [], [], []];
@@ -11,18 +12,14 @@ Game.prototype.validMove = function(columnIndex) {
   } else {
     return false; // alert("Pick another column!");
   }
-}
+};
 
 Game.prototype.insertToken = function(columnIndex) {
   this.board[columnIndex].push(this.whoseTurn);
   var inserted = {color: this.whoseTurn, row: (this.board[columnIndex].length - 1)};
-  if (this.whoseTurn === 'red') {
-    this.whoseTurn = 'black';
-  } else {
-    this.whoseTurn = 'red';
-  }
   return inserted;
-}
+};
+// at the end of each turn, switch whoseTurn
 
 Game.prototype.checkHorizontal = function() {
   var counter = 0;
@@ -32,7 +29,7 @@ Game.prototype.checkHorizontal = function() {
 
       if (this.board[column][i] === this.board[column + 1][i]) {
         counter += 1;
-        console.log("Horizontal Count: " + counter)
+        console.log("Horizontal Count: " + counter);
 
         if (counter === 3) {
           this.hasWinner = true;
