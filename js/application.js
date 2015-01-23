@@ -14,6 +14,9 @@ $(document).ready(function() {
     } else if (game.whoseTurn === "black") {
       myFirebaseRef.set({whoseTurn: "red" });
     }
+    myFirebaseRef.on("value", function(snapshot){
+      game.whoseTurn = snapshot.val().whoseTurn;
+    });
     var obj = game.insertToken(column);
     $('*[data-row="' + obj.row + '"] *[data-col="' + column + '"]').addClass(obj.color);
       game.checkHorizontal();

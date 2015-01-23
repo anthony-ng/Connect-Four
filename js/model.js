@@ -17,11 +17,6 @@ Game.prototype.validMove = function(columnIndex) {
 Game.prototype.insertToken = function(columnIndex) {
   this.board[columnIndex].push(this.whoseTurn);
   var inserted = {color: this.whoseTurn, row: (this.board[columnIndex].length - 1)};
-  // if (this.whoseTurn === 'red') {
-  //   this.whoseTurn = 'black';
-  // } else {
-  //   this.whoseTurn = 'red';
-  // }
   return inserted;
 };
 // at the end of each turn, switch whoseTurn
