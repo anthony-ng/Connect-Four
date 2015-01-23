@@ -9,13 +9,6 @@
 
 Good news: you know JavaScript! Or at least you think you do. For this challenge, you're going to be writing a large, JavaScript-heavy codebase. You'll need to keep it organized and readable and tested. And you'll be doing it in teams, using the Agile development process.
 
-## Releases
-
-### Release 1: Deciding on your project and MVP
-
-You have a choice of two possible projects to work on: building a JavaScript version of Connect Four, or building a survey website (with lots of AJAX). Here are some possible user stories
-for both:
-
 **Connect Four**
 * A user can see a board
 * A user can see a styled board
@@ -33,20 +26,3 @@ for both:
 * Users can play against a super "smart" computer, that optimizes its moves by making projections for future moves
 * A user can play against another user on a different computer, using Firebase.js
 * Add your own user stories
-
-![alt tag](https://github.com/victoriachuang/javascript-group-projects/blob/master/img1.jpeg)
-
-Before you start coding, decide what your Minimum Viable Product is. What are the features that are absolutely necessary?
-
-***Declare your MVP in your README.md. This should be your first commit.*** As you finish sprints, you should update your README.md
-
-### Release 2: Build it!
-
-It's time to build this thing. Start a repository on GitHub as a part of your cohort's organization and get to work.
-
-Be intentional about your workflow. Are you going to work solo or in pairs? How
-are you going to do to code review? How do you plan on communicating with each
-other? How are you going to handle deployment? How are you going to split the
-project up so that you aren't constantly overwriting each other's code?
-
-
