@@ -1,10 +1,10 @@
 function Game() {
   // holds whose turn => undefined variable, will be assigned red or black
-  var whoseTurn = "red"; // will indicate "red" or "black"
+  this.whoseTurn = "red"; // will indicate "red" or "black"
   // hold board representation => nested array, each array is a column
   // max length for each column is 6
-  var board = [[], [], [], [], [], [], []];
-  var hasWinner = false;
+  this.board = [[], [], [], [], [], [], []];
+  this.hasWinner = false;
 }
 
 
@@ -36,8 +36,13 @@ Game.prototype.validMove = function(columnIndex) {
 // if validMove, push whoseTurn onto selected array
 // this is column
 Game.prototype.insertToken = function(columnIndex) {
-  this.board[columnIndex].push(whoseTurn);
-  var inserted = {color: this.whoseTurn, row: (columnIndex.length - 1)};
+  this.board[columnIndex].push(this.whoseTurn);
+  var inserted = {color: this.whoseTurn, row: (this.board[columnIndex].length - 1)};
+  if (this.whoseTurn === 'red') {
+    this.whoseTurn = 'black';
+  } else {
+    this.whoseTurn = 'red';
+  }
   return inserted;
 }
 
