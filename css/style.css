@@ -24,3 +24,13 @@ td.red {
 td.black {
   background: #000;
 }
+
+h1 {
+  text-align: center;
+  font-size: 5em;
+  color: yellow;
+}
+
+body {
+  background-color: gray;
+}

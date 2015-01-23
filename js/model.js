@@ -1,4 +1,3 @@
-
 function Game() {
   this.whoseTurn = "red";
   this.board = [[], [], [], [], [], [], []];
@@ -24,7 +23,7 @@ Game.prototype.insertToken = function(columnIndex) {
 Game.prototype.checkHorizontal = function() {
   var counter = 0;
   for (var column = 0; column < 6; column++) {
-    // console.log("checking horizontal");
+
     for (i = 0; i < this.board[column].length; i++) {
 
       if (this.board[column][i] === this.board[column + 1][i]) {
@@ -39,7 +38,6 @@ Game.prototype.checkHorizontal = function() {
 
       } else {
         counter = 0; // reset count
-        // console.log("Counter reset")
       }
     }
   }
@@ -48,8 +46,7 @@ Game.prototype.checkHorizontal = function() {
 Game.prototype.checkVertical = function() {
   var counter = 0;
   for (var column = 0; column < 6; column++) {
-    // console.log("checking vertical");
-    // console.log("Now we are at " + column + " column");
+
     for (i = 0; i < this.board[column].length; i++) {
 
       if (this.board[column][i] === this.board[column][i + 1]) {
@@ -93,19 +90,3 @@ Game.prototype.checkDiagonal = function() {
     }
   }
 }
-
-
-// check diagonal lower left --> upper right
-// board[outer --][row ++]
-
-
-
-
-
-
-
-
-
-
-
-
