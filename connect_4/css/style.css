@@ -7,10 +7,6 @@ table.board {
   background: yellow;
 }
 
-tr {
-  padding-left: 10px;
-}
-
 td {
   width: 70px;
   height: 70px;
