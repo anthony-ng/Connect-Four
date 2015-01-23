@@ -1,3 +1,4 @@
+
 function Game() {
   this.whoseTurn = "red";
   this.board = [[], [], [], [], [], [], []];

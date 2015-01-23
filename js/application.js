@@ -1,15 +1,20 @@
 // on ready
+
 $(document).ready(function() {
+  var myFirebaseRef = new Firebase("blazing-torch-1243.firebaseIO.com");
   // listen for click on TDs
   var game = new Game();
-
+  myFirebaseRef.set({
+    whoseTurn: "red"
+  });
   // while (game.hasWinner) {
     $('td').on('click', function() {
     // assign column to the td data-col
     var column = $(this).attr('data-col');
-    console.log(game);
+    // console.log(game);
     if (game.validMove(column)) {
       var obj = game.insertToken(column);
+      myFirebaseRef.set({whoseTurn: game.whoseTurn});
       // $(this.attr(data.data-row)).addClass(data.color)
       $('*[data-row="' + obj.row + '"] *[data-col="' + column + '"]').addClass(obj.color);
       game.checkHorizontal();
