@@ -7,20 +7,6 @@ function Game() {
   this.hasWinner = false;
 }
 
-
-// check win
-// Game.prototype.checkWin = function() {
-  // check horizontal
-
-  // check vertical
-
-  // check diagonal
-
-  // if someone has won, hasWinner = true, winner will be value of whoseTurn
-
-// }
-
-
 // check valid move function
 // if array length is less than 6, return true
 // function will be called on individual column array
@@ -45,11 +31,9 @@ Game.prototype.insertToken = function(columnIndex) {
   }
   return inserted;
 }
-
 // at the end of each turn, switch whoseTurn
 
 // representation of game:
-
 
 while (this.hasWinner === false) {
   if (this.whoseTurn === "red") {
@@ -72,9 +56,16 @@ while (this.hasWinner === false) {
   }
 }
 
+// check win
+// Game.prototype.checkWin = function() {
+  // check horizontal
 
-// event listener - click on button to insert token
-// button will reference specific column
+  // check vertical
 
+  // check diagonal
+
+  // if someone has won, hasWinner = true, winner will be value of whoseTurn
+
+// }
 
 
