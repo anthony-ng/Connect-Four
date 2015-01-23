@@ -7,10 +7,9 @@ function Game() {
   var hasWinner? = false;
 }
 
-// board = [["red","red"], [], [] ,....]
 
 // check win
-Game.prototype.checkWin = function() {
+// Game.prototype.checkWin = function() {
   // check horizontal
 
   // check vertical
@@ -19,7 +18,7 @@ Game.prototype.checkWin = function() {
 
   // if someone has won, hasWinner? = true, winner will be value of whoseTurn?
 
-}
+// }
 
 
 // check valid move function
@@ -30,7 +29,7 @@ Game.prototype.validMove? = function(columnIndex) {
   if (this.board[columnIndex].length < 6) {
     return true;
   } else {
-    console.log("Pick another column!");
+    return false; // alert("Pick another column!");
   }
 }
 
@@ -47,24 +46,24 @@ Game.prototype.insertToken = function(columnIndex) {
 // representation of game:
 
 
-while (hasWinner? === false) {
-  if (whoseTurn? === "red") {
+while (this.hasWinner? === false) {
+  if (this.whoseTurn? === "red") {
+    // 2nd: player select a column
+    if(this.validMove?) {
+      this.insertToken();
+    }
     // 1st: check win
-    checkWin();
-    // 2nd: player select a column
-    if(validMove?) {
-      insertToken();
-    }
+    this.checkWin();
 
-    whoseTurn? = "black"; // switch players
-  } else if (whoseTurn? === "black") {
-    checkWin();
+    this.whoseTurn? = "black"; // switch players
+  } else if (this.whoseTurn? === "black") {
     // 2nd: player select a column
-    if(validMove?) {
-      insertToken();
+    if(this.validMove?) {
+      this.insertToken();
     }
+    this.checkWin();
 
-    whoseTurn? = "red"; // switch players
+    this.whoseTurn? = "red"; // switch players
   }
 }
 
