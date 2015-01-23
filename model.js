@@ -7,8 +7,7 @@ function Game() {
   var hasWinner? = false;
 }
 
-board = [["red","black"], [], [] ,....]
-
+// board = [["red","red"], [], [] ,....]
 
 // check win
 Game.prototype.checkWin = function() {
@@ -18,10 +17,10 @@ Game.prototype.checkWin = function() {
 
   // check diagonal
 
-
   // if someone has won, hasWinner? = true, winner will be value of whoseTurn?
 
 }
+
 
 // check valid move function
 // if array length is less than 6, return true
@@ -39,6 +38,8 @@ Game.prototype.validMove? = function(columnIndex) {
 // this is column
 Game.prototype.insertToken = function(columnIndex) {
   this.board[columnIndex].push(whoseTurn?);
+  var inserted = {color: this.whoseTurn, row: (columnIndex.length - 1)};
+  return inserted;
 }
 
 // at the end of each turn, switch whoseTurn?
