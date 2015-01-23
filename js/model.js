@@ -1,16 +1,10 @@
 function Game() {
-  // holds whose turn => undefined variable, will be assigned red or black
-  this.whoseTurn = "red"; // will indicate "red" or "black"
-  // hold board representation => nested array, each array is a column
-  // max length for each column is 6
+  this.whoseTurn = "red";
   this.board = [[], [], [], [], [], [], []];
   this.hasWinner = false;
 }
 
 // check valid move function
-// if array length is less than 6, return true
-// function will be called on individual column array
-// this is column
 Game.prototype.validMove = function(columnIndex) {
   if (this.board[columnIndex].length < 6) {
     return true;
@@ -19,8 +13,6 @@ Game.prototype.validMove = function(columnIndex) {
   }
 }
 
-// if validMove, push whoseTurn onto selected array
-// this is column
 Game.prototype.insertToken = function(columnIndex) {
   this.board[columnIndex].push(this.whoseTurn);
   var inserted = {color: this.whoseTurn, row: (this.board[columnIndex].length - 1)};
@@ -31,41 +23,92 @@ Game.prototype.insertToken = function(columnIndex) {
   }
   return inserted;
 }
-// at the end of each turn, switch whoseTurn
 
-// representation of game:
+Game.prototype.checkHorizontal = function() {
+  var counter = 0;
+  for (var column = 0; column < 6; column++) {
+    // console.log("checking horizontal");
+    for (i = 0; i < this.board[column].length; i++) {
 
-while (this.hasWinner === false) {
-  if (this.whoseTurn === "red") {
-    // 2nd: player select a column
-    if(this.validMove) {
-      this.insertToken();
+      if (this.board[column][i] === this.board[column + 1][i]) {
+        counter += 1;
+        console.log("Horizontal Count: " + counter)
+
+        if (counter === 3) {
+          this.hasWinner = true;
+          alert("You won!");
+          location.reload();
+        }
+
+      } else {
+        counter = 0; // reset count
+        // console.log("Counter reset")
+      }
     }
-    // 1st: check win
-    this.checkWin();
-
-    this.whoseTurn = "black"; // switch players
-  } else if (this.whoseTurn === "black") {
-    // 2nd: player select a column
-    if(this.validMove) {
-      this.insertToken();
-    }
-    this.checkWin();
-
-    this.whoseTurn = "red"; // switch players
   }
 }
 
-// check win
-// Game.prototype.checkWin = function() {
-  // check horizontal
+Game.prototype.checkVertical = function() {
+  var counter = 0;
+  for (var column = 0; column < 6; column++) {
+    // console.log("checking vertical");
+    // console.log("Now we are at " + column + " column");
+    for (i = 0; i < this.board[column].length; i++) {
 
-  // check vertical
+      if (this.board[column][i] === this.board[column][i + 1]) {
+        counter += 1;
+        console.log("Vertical Count: " + counter)
 
-  // check diagonal
+        if (counter === 3) {
+          this.hasWinner = true;
+          alert("You won!");
+          location.reload();
+        }
 
-  // if someone has won, hasWinner = true, winner will be value of whoseTurn
+      } else {
+        counter = 0; // reset count
+      }
+    }
+  }
+}
 
-// }
+
+// check diagonal lower right --> upper left // bottom up
+// board[column ++][row ++]
+Game.prototype.checkDiagonal = function() {
+  var counter = 0;
+  for (var column = 0; column < 6; column++) {
+    // console.log("checking diagonal");
+    for (i = 0; i < this.board[column].length; i++) {
+
+      if (this.board[column][i] === this.board[column + 1][i + 1]) {
+        counter += 1;
+
+        if (counter === 3) {
+          this.hasWinner = true;
+          alert("You won!");
+          location.reload();
+        }
+
+      } else {
+        counter = 0; // reset count
+      }
+    }
+  }
+}
+
+
+// check diagonal lower left --> upper right
+// board[outer --][row ++]
+
+
+
+
+
+
+
+
+
+
 
 

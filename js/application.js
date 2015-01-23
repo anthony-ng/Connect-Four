@@ -12,6 +12,9 @@ $(document).ready(function() {
       var obj = game.insertToken(column);
       // $(this.attr(data.data-row)).addClass(data.color)
       $('*[data-row="' + obj.row + '"] *[data-col="' + column + '"]').addClass(obj.color);
+      game.checkHorizontal();
+      game.checkVertical();
+      game.checkDiagonal();
     }
     })
   // }
