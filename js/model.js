@@ -4,41 +4,73 @@ function Game() {
   this.hasWinner = false;
 }
 
-// check valid move function
 Game.prototype.validMove = function(columnIndex) {
   if (this.board[columnIndex].length < 6) {
     return true;
   } else {
-    return false; // alert("Pick another column!");
+    return false;
   }
-};
+}
 
 Game.prototype.insertToken = function(columnIndex) {
   this.board[columnIndex].push(this.whoseTurn);
   var inserted = {color: this.whoseTurn, row: (this.board[columnIndex].length - 1)};
   return inserted;
-};
-// at the end of each turn, switch whoseTurn
+}
 
 Game.prototype.checkHorizontal = function() {
-  var counter = 0;
-  for (var column = 0; column < 6; column++) {
+  var redSeries = blackSeries = 0,
+      lastFound = null;
 
-    for (i = 0; i < this.board[column].length; i++) {
+  console.log('------- new check -------')
+  for (var row = 0; row < 5; row++) {
 
-      if (this.board[column][i] === this.board[column + 1][i]) {
-        counter += 1;
-        console.log("Horizontal Count: " + counter);
+    // console.log('- new col -')
+    for (var column = 0; column < 6; column++) {
 
-        if (counter === 3) {
-          this.hasWinner = true;
-          alert("You won!");
-          location.reload();
-        }
+      // debugger
+      // console.log('- new row -')
+      switch(this.board[column][row]){
+        case 'black':
+          blackSeries += 1;
+          lastFound = 'black';
+          break;
 
-      } else {
-        counter = 0; // reset count
+        case 'red':
+          redSeries += 1;
+          lastFound = 'red';
+          break;
+
+        case undefined:
+          lastFound = 'undefined';
+          blackSeries = redSeries = 0;
+          break;
+        default:
+          // console.log('wat?!')
       }
+
+      // console.log('just found a ' + lastFound)
+      // console.log(blackSeries + ' black, ' + redSeries + ' red');
+
+      if (blackSeries == 4 || redSeries == 4) {
+        this.hasWinner = true;
+        alert("You won!");
+        location.reload();
+      }
+
+      // if (this.board[column][i] === this.board[column + 1][i]) {
+      //   counter += 1;
+      //   console.log("Horizontal Count: " + counter);
+
+      //   if (counter === 3) {
+      //     this.hasWinner = true;
+      //     alert("You won!");
+      //     location.reload();
+      //   }
+
+      // } else {
+      //   counter = 0; // reset count
+      // }
     }
   }
 }
@@ -47,28 +79,26 @@ Game.prototype.checkVertical = function() {
   var counter = 0;
   for (var column = 0; column < 6; column++) {
 
-    for (i = 0; i < this.board[column].length; i++) {
+    // for (i = 0; i < this.board[column].length; i++) {
+    for (var row = 0; row < 5; row++) {
 
-      if (this.board[column][i] === this.board[column][i + 1]) {
-        counter += 1;
-        console.log("Vertical Count: " + counter)
+      // if (this.board[column][row] === this.board[column][row + 1]) {
+      //   counter += 1;
+      //   console.log("Vertical Count: " + counter)
 
-        if (counter === 3) {
-          this.hasWinner = true;
-          alert("You won!");
-          location.reload();
-        }
+      //   if (counter === 3) {
+      //     this.hasWinner = true;
+      //     alert("You won!");
+      //     location.reload();
+      //   }
 
-      } else {
-        counter = 0; // reset count
-      }
+      // } else {
+      //   counter = 0; // reset count
+      // }
     }
   }
 }
 
-
-// check diagonal lower right --> upper left // bottom up
-// board[column ++][row ++]
 Game.prototype.checkDiagonal = function() {
   var counter = 0;
   for (var column = 0; column < 6; column++) {
