@@ -1,8 +1,13 @@
 
-function Game() {
+function Game(existingGameId) {
+  this.id = existingGameId;
+  if(!this.id){
+    this.id = Math.floor(Math.random() * 10000000);
+  }
   this.whoseTurn = "red";
   this.board = [[], [], [], [], [], [], []];
   this.hasWinner = false;
+  this.moves = [];
 }
 
 // check valid move function
@@ -16,7 +21,8 @@ Game.prototype.validMove = function(columnIndex) {
 
 Game.prototype.insertToken = function(columnIndex) {
   this.board[columnIndex].push(this.whoseTurn);
-  var inserted = {color: this.whoseTurn, row: (this.board[columnIndex].length - 1)};
+  var inserted = {color: this.whoseTurn, row: (this.board[columnIndex].length - 1), col: columnIndex};
+  this.moves.push(inserted);
   return inserted;
 };
 // at the end of each turn, switch whoseTurn
