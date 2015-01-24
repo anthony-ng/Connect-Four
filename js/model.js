@@ -22,14 +22,10 @@ Game.prototype.checkHorizontal = function() {
   var redSeries = blackSeries = 0,
       lastFound = null;
 
-  console.log('------- new check -------')
-  for (var row = 0; row < 5; row++) {
+  for (var row = 0; row < 6; row++) {
 
-    // console.log('- new col -')
-    for (var column = 0; column < 6; column++) {
+    for (var column = 0; column < 7; column++) {
 
-      // debugger
-      // console.log('- new row -')
       switch(this.board[column][row]){
         case 'black':
           blackSeries += 1;
@@ -46,55 +42,36 @@ Game.prototype.checkHorizontal = function() {
           blackSeries = redSeries = 0;
           break;
         default:
-          // console.log('wat?!')
       }
-
-      // console.log('just found a ' + lastFound)
-      // console.log(blackSeries + ' black, ' + redSeries + ' red');
 
       if (blackSeries == 4 || redSeries == 4) {
         this.hasWinner = true;
         alert("You won!");
         location.reload();
       }
-
-      // if (this.board[column][i] === this.board[column + 1][i]) {
-      //   counter += 1;
-      //   console.log("Horizontal Count: " + counter);
-
-      //   if (counter === 3) {
-      //     this.hasWinner = true;
-      //     alert("You won!");
-      //     location.reload();
-      //   }
-
-      // } else {
-      //   counter = 0; // reset count
-      // }
     }
   }
 }
 
 Game.prototype.checkVertical = function() {
   var counter = 0;
-  for (var column = 0; column < 6; column++) {
+  for (var column = 0; column < 7; column++) {
 
-    // for (i = 0; i < this.board[column].length; i++) {
-    for (var row = 0; row < 5; row++) {
+    for (var row = 0; row < this.board[column].length; row++) {
 
-      // if (this.board[column][row] === this.board[column][row + 1]) {
-      //   counter += 1;
-      //   console.log("Vertical Count: " + counter)
+      if (this.board[column][row] === this.board[column][row + 1]) {
+        counter += 1;
+        console.log("Vertical Count: " + counter)
 
-      //   if (counter === 3) {
-      //     this.hasWinner = true;
-      //     alert("You won!");
-      //     location.reload();
-      //   }
+        if (counter === 3) {
+          this.hasWinner = true;
+          alert("You won!");
+          location.reload();
+        }
 
-      // } else {
-      //   counter = 0; // reset count
-      // }
+      } else {
+        counter = 0; // reset count
+      }
     }
   }
 }
