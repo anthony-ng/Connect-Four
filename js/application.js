@@ -1,11 +1,13 @@
 // on ready
 
 $(document).ready(function() {
+
   var game = new Game();
   var myFirebaseRef = new Firebase("blazing-torch-1243.firebaseIO.com/" + game.id);
   var myFirebaseMovesRef = new Firebase("blazing-torch-1243.firebaseIO.com/" + game.id + '/moves');
 
   myFirebaseRef.set({whoseTurn: "red", moves: game.moves});
+  // });
 
   myFirebaseRef.on("value", function(snapshot){
       game.whoseTurn = snapshot.val().whoseTurn;
@@ -21,7 +23,7 @@ $(document).ready(function() {
     // console.log(moveObj.color);
     // console.log(moveObj.col);
     // console.log(moveObj.row);
-    $('*[data-row="' + moveObj.row + '"] *[data-col="' + moveObj.col + '"]').addClass(moveObj.color);
+    $('*[data-row="' + moveObj.row + '"] *[data-col="' + moveObj.col + '"]').addClass(moveObj.color).addClass("slideDown");
 
   });
 
