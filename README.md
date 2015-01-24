@@ -1,4 +1,4 @@
-# [Connect 4our](connect-4our.herokuapp.com)
+# [Connect 4our](https://connect-4our.herokuapp.com)
 
 ## Summary
 
