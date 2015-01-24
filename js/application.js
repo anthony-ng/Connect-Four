@@ -32,7 +32,7 @@ $(document).ready(function() {
       $('*[data-row="' + obj.row + '"] *[data-col="' + column + '"]').addClass(obj.color);
         game.checkHorizontal();
         game.checkVertical();
-        game.checkDiagonal();
+        // game.checkDiagonal();
     }
   });
 });
