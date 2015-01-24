@@ -1,26 +1,48 @@
-table.board {
+.container {
   width: 700px;
   height: 600px;
+  margin: 80px auto 0 auto;
+  position: relative;
+}
+
+table.board,
+table.underlay {
+  width: 100%;
+  height: 100%;
   border-radius: 20px;
   padding: 10px;
-  margin: 80px auto;
-  background: yellow;
+  background: #fde3a7;
+  position: absolute;
+}
+
+table.board {
+  z-index: 10;
+  background: transparent;
 }
 
 td {
   width: 70px;
   height: 70px;
-/*  padding-left: 10px;
-*/  background: #fff;
+  background: #fff;
   -moz-border-radius: 60px;
   -webkit-border-radius: 60px;
   border-radius: 60px;
 }
 
+td:hover {
+  background: #6c7a89;
+  opacity: 0.25;
+}
+
 td.red {
-  background: red;
+  background: #e74c3c;
 }
 
 td.black {
-  background: #000;
+  background: #2574a9;
+}
+
+td.red:hover,
+td.black:hover {
+  opacity: 1;
 }
