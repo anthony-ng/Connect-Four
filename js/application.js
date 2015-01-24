@@ -1,13 +1,13 @@
 // on ready
 
 $(document).ready(function() {
-  var myFirebaseRef = new Firebase("blazing-torch-1243.firebaseIO.com");
-
   var game = new Game();
+  var myFirebaseRef = new Firebase("blazing-torch-1243.firebaseIO.com/" + game.id);
+  myFirebaseRef.set({whoseTurn: "red", moves: game.moves});
 
-  myFirebaseRef.set({
-    whoseTurn: "red"
-  });
+  myFirebaseRef.on("value", function(snapshot){
+      game.whoseTurn = snapshot.val().whoseTurn;
+    });
 
   $('td').on('click', function() {
 
@@ -27,12 +27,13 @@ $(document).ready(function() {
         game.whoseTurn = snapshot.val().whoseTurn;
       });
 
-      var obj = game.insertToken(column);
+    var obj = game.insertToken(column);
 
-      $('*[data-row="' + obj.row + '"] *[data-col="' + column + '"]').addClass(obj.color);
-        game.checkHorizontal();
-        game.checkVertical();
-        // game.checkDiagonal();
-    }
+    myFirebaseRef.update({moves: game.moves});
+    $('*[data-row="' + obj.row + '"] *[data-col="' + column + '"]').addClass(obj.color);
+      game.checkHorizontal();
+      game.checkVertical();
+      game.checkDiagonal();
+  }
   });
 });
