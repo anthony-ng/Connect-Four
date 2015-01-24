@@ -1,46 +1,76 @@
-
 function Game() {
   this.whoseTurn = "red";
   this.board = [[], [], [], [], [], [], []];
   this.hasWinner = false;
 }
 
-// check valid move function
 Game.prototype.validMove = function(columnIndex) {
   if (this.board[columnIndex].length < 6) {
     return true;
   } else {
-    return false; // alert("Pick another column!");
+    return false;
   }
-};
+}
 
 Game.prototype.insertToken = function(columnIndex) {
   this.board[columnIndex].push(this.whoseTurn);
   var inserted = {color: this.whoseTurn, row: (this.board[columnIndex].length - 1)};
   return inserted;
-};
-// at the end of each turn, switch whoseTurn
+}
 
 Game.prototype.checkHorizontal = function() {
-  var counter = 0;
-  for (var column = 0; column < 6; column++) {
-    // console.log("checking horizontal");
-    for (i = 0; i < this.board[column].length; i++) {
+  var redSeries = blackSeries = 0,
+      lastFound = null;
 
-      if (this.board[column][i] === this.board[column + 1][i]) {
-        counter += 1;
-        console.log("Horizontal Count: " + counter);
+  console.log('------- new check -------')
+  for (var row = 0; row < 5; row++) {
 
-        if (counter === 3) {
-          this.hasWinner = true;
-          alert("You won!");
-          location.reload();
-        }
+    // console.log('- new col -')
+    for (var column = 0; column < 6; column++) {
 
-      } else {
-        counter = 0; // reset count
-        // console.log("Counter reset")
+      // debugger
+      // console.log('- new row -')
+      switch(this.board[column][row]){
+        case 'black':
+          blackSeries += 1;
+          lastFound = 'black';
+          break;
+
+        case 'red':
+          redSeries += 1;
+          lastFound = 'red';
+          break;
+
+        case undefined:
+          lastFound = 'undefined';
+          blackSeries = redSeries = 0;
+          break;
+        default:
+          // console.log('wat?!')
       }
+
+      // console.log('just found a ' + lastFound)
+      // console.log(blackSeries + ' black, ' + redSeries + ' red');
+
+      if (blackSeries == 4 || redSeries == 4) {
+        this.hasWinner = true;
+        alert("You won!");
+        location.reload();
+      }
+
+      // if (this.board[column][i] === this.board[column + 1][i]) {
+      //   counter += 1;
+      //   console.log("Horizontal Count: " + counter);
+
+      //   if (counter === 3) {
+      //     this.hasWinner = true;
+      //     alert("You won!");
+      //     location.reload();
+      //   }
+
+      // } else {
+      //   counter = 0; // reset count
+      // }
     }
   }
 }
@@ -48,30 +78,27 @@ Game.prototype.checkHorizontal = function() {
 Game.prototype.checkVertical = function() {
   var counter = 0;
   for (var column = 0; column < 6; column++) {
-    // console.log("checking vertical");
-    // console.log("Now we are at " + column + " column");
-    for (i = 0; i < this.board[column].length; i++) {
 
-      if (this.board[column][i] === this.board[column][i + 1]) {
-        counter += 1;
-        console.log("Vertical Count: " + counter)
+    // for (i = 0; i < this.board[column].length; i++) {
+    for (var row = 0; row < 5; row++) {
 
-        if (counter === 3) {
-          this.hasWinner = true;
-          alert("You won!");
-          location.reload();
-        }
+      // if (this.board[column][row] === this.board[column][row + 1]) {
+      //   counter += 1;
+      //   console.log("Vertical Count: " + counter)
 
-      } else {
-        counter = 0; // reset count
-      }
+      //   if (counter === 3) {
+      //     this.hasWinner = true;
+      //     alert("You won!");
+      //     location.reload();
+      //   }
+
+      // } else {
+      //   counter = 0; // reset count
+      // }
     }
   }
 }
 
-
-// check diagonal lower right --> upper left // bottom up
-// board[column ++][row ++]
 Game.prototype.checkDiagonal = function() {
   var counter = 0;
   for (var column = 0; column < 6; column++) {
@@ -93,19 +120,3 @@ Game.prototype.checkDiagonal = function() {
     }
   }
 }
-
-
-// check diagonal lower left --> upper right
-// board[outer --][row ++]
-
-
-
-
-
-
-
-
-
-
-
-

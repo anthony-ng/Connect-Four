@@ -24,3 +24,15 @@ td.red {
 td.black {
   background: #000;
 }
+
+h1 {
+  text-align: center;
+  font-size: 5em;
+  font-family: Century Gothic, sans-serif;
+  color: yellow;
+  margin-bottom: -50px;
+}
+
+body {
+  background-color: gray;
+}
