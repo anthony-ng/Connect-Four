@@ -46,7 +46,7 @@ Game.prototype.checkHorizontal = function() {
 
       if (blackSeries == 4 || redSeries == 4) {
         this.hasWinner = true;
-        alert("You won!");
+        swal("You won!", "", "success");
         location.reload();
       }
     }
@@ -65,7 +65,7 @@ Game.prototype.checkVertical = function() {
 
         if (counter === 3) {
           this.hasWinner = true;
-          alert("You won!");
+          swal("You won!", "", "success");
           location.reload();
         }
 
@@ -87,7 +87,7 @@ Game.prototype.checkDiagonal = function() {
 
         if (counter === 3) {
           this.hasWinner = true;
-          alert("You won!");
+          swal("You won!", "", "success");
           location.reload();
         }
 
