@@ -2,72 +2,134 @@
 <html lang="en">
 <head>
 
+  <!-- <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'> -->
   <link rel="stylesheet" href="css/style.css">
   <script src='https://cdn.firebase.com/js/client/2.0.4/firebase.js'></script>
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="sweet-alert/lib/sweet-alert.css">
+
   <title>connect 4</title>
 </head>
 <body>
-  <h1>Connect 4our</h1>
-  <table class='board'>
-    <tr data-row='5'>
-      <td data-col='0'></td>
-      <td data-col='1'></td>
-      <td data-col='2'></td>
-      <td data-col='3'></td>
-      <td data-col='4'></td>
-      <td data-col='5'></td>
-      <td data-col='6'></td>
-    </tr>
-    <tr data-row='4'>
-      <td data-col='0'></td>
-      <td data-col='1'></td>
-      <td data-col='2'></td>
-      <td data-col='3'></td>
-      <td data-col='4'></td>
-      <td data-col='5'></td>
-      <td data-col='6'></td>
-    </tr>
-    <tr data-row='3'>
-      <td data-col='0'></td>
-      <td data-col='1'></td>
-      <td data-col='2'></td>
-      <td data-col='3'></td>
-      <td data-col='4'></td>
-      <td data-col='5'></td>
-      <td data-col='6'></td>
-    </tr>
-    <tr data-row='2'>
-      <td data-col='0'></td>
-      <td data-col='1'></td>
-      <td data-col='2'></td>
-      <td data-col='3'></td>
-      <td data-col='4'></td>
-      <td data-col='5'></td>
-      <td data-col='6'></td>
-    </tr>
-    <tr data-row='1'>
-      <td data-col='0'></td>
-      <td data-col='1'></td>
-      <td data-col='2'></td>
-      <td data-col='3'></td>
-      <td data-col='4'></td>
-      <td data-col='5'></td>
-      <td data-col='6'></td>
-    </tr>
-    <tr data-row='0'>
-      <td data-col='0'></td>
-      <td data-col='1'></td>
-      <td data-col='2'></td>
-      <td data-col='3'></td>
-      <td data-col='4'></td>
-      <td data-col='5'></td>
-      <td data-col='6'></td>
-    </tr>
-  </table>
+  <div class='container'>
+    <table class='board'>
+      <tr data-row='5'>
+        <td data-col='0'></td>
+        <td data-col='1'></td>
+        <td data-col='2'></td>
+        <td data-col='3'></td>
+        <td data-col='4'></td>
+        <td data-col='5'></td>
+        <td data-col='6'></td>
+      </tr>
+      <tr data-row='4'>
+        <td data-col='0'></td>
+        <td data-col='1'></td>
+        <td data-col='2'></td>
+        <td data-col='3'></td>
+        <td data-col='4'></td>
+        <td data-col='5'></td>
+        <td data-col='6'></td>
+      </tr>
+      <tr data-row='3'>
+        <td data-col='0'></td>
+        <td data-col='1'></td>
+        <td data-col='2'></td>
+        <td data-col='3'></td>
+        <td data-col='4'></td>
+        <td data-col='5'></td>
+        <td data-col='6'></td>
+      </tr>
+      <tr data-row='2'>
+        <td data-col='0'></td>
+        <td data-col='1'></td>
+        <td data-col='2'></td>
+        <td data-col='3'></td>
+        <td data-col='4'></td>
+        <td data-col='5'></td>
+        <td data-col='6'></td>
+      </tr>
+      <tr data-row='1'>
+        <td data-col='0'></td>
+        <td data-col='1'></td>
+        <td data-col='2'></td>
+        <td data-col='3'></td>
+        <td data-col='4'></td>
+        <td data-col='5'></td>
+        <td data-col='6'></td>
+      </tr>
+      <tr data-row='0'>
+        <td data-col='0'></td>
+        <td data-col='1'></td>
+        <td data-col='2'></td>
+        <td data-col='3'></td>
+        <td data-col='4'></td>
+        <td data-col='5'></td>
+        <td data-col='6'></td>
+      </tr>
+    </table>
+    <table class='underlay'>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="js/model.js"></script>
   <script src="js/application.js"></script>
+  <script src="sweet-alert/lib/sweet-alert.min.js"></script>
 
 </body>
 </html>
