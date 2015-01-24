@@ -46,3 +46,7 @@ td.red:hover,
 td.black:hover {
   opacity: 1;
 }
+
+h4 {
+  text-align: center;
+}

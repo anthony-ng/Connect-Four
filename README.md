@@ -27,7 +27,7 @@
 
 ## Contributors
 
-* Anthony Ng
-* Angela Field
-* Jeremy McIntyre
-* Victoria Chuang
+* Anthony Ng (Model, Algorithm, Heroku)
+* Angela Field (View, Animation)
+* Jeremy McIntyre (Controller, Firebase.js)
+* Victoria Chuang (Model, Algorithm)
