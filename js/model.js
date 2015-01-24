@@ -1,7 +1,7 @@
 function Game(existingGameId) {
   this.id = existingGameId;
   if(!this.id){
-    this.id = Math.floor(Math.random() * 10000000);
+    this.id = 2;//Math.floor(Math.random() * 10000000);
   }
   this.whoseTurn = "red";
   this.board = [[], [], [], [], [], [], []];
@@ -72,7 +72,7 @@ Game.prototype.checkVertical = function() {
         if (counter === 3) {
           this.hasWinner = true;
           swal("You won!", "", "success");
-          location.reload();
+          // location.reload();
         }
 
       } else {
@@ -94,7 +94,7 @@ Game.prototype.checkDiagonal = function() {
         if (counter === 3) {
           this.hasWinner = true;
           swal("You won!", "", "success");
-          location.reload();
+          // location.reload();
         }
 
       } else {
